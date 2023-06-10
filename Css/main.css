@@ -160,6 +160,13 @@ input[type=password] {
   width: 60%;
   margin: 2rem;
   text-align: justify;
+  
+  
+}
+
+.pasos{
+  margin-top: 7.5rem;
+
 }
 
 .container {
@@ -244,4 +251,24 @@ input[type=password] {
 
 .nosotrosMain {
   height: 30rem;
+}
+
+.oficial{
+  padding-top:4rem ;
+  text-align: center;
+}
+
+.registros{
+  padding-top: 1rem ;
+  text-align: center;
+}
+
+.mensaje{
+  padding-top: 1rem ;
+  text-align: center;
+}
+
+.mira{padding-top: 2rem ;
+  text-align: center;
+  
 }

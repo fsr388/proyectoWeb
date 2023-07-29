@@ -1,72 +1,77 @@
 
-const usuarioValido = "usuario1";
-
-const contraseñaValida = "1234";
-
-
-function verificarCredenciales(usuario, contraseña) {
-
-
-  if (usuarioValido === usuario && contraseñaValida === contraseña) {
-
-
-    return true;
-
-  }
-
-  return false;
-
-
+function mostrarMenu() {
+    let opcion =  prompt ("1. Producto \n 2. Random \n 3. Filtrar \n 4. Salir");
+    return opcion;
 }
 
-function iniciarSesion() {
-
-
-  let usuarioIngresado = prompt('Ingrese su usuario:');
-
-
-  let contraseñaIngresada = prompt('Ingrese su contraseña:');
-
-  let intentos = 3;
-
-
-  while (intentos > 0) {
-
-
-    if (verificarCredenciales(usuarioIngresado, contraseñaIngresada)) {
-
-
-      alert('Inicio de sesión exitoso');
-
-
-      return;
-
-
-    } else {
-
-
-      alert('Credenciales inválidas. Intente nuevamente.');
-
-
-      intentos--;
-
-      usuarioIngresado = prompt('Ingrese su usuario:');
-
-      contraseñaIngresada = prompt('Ingrese su contraseña:');
-
-
+function menuPrincipal() {
+    var opcion;
+  
+    do {
+     
+      opcion = mostrarMenu();
+  
+      switch (opcion) {
+        case "1":
+          mostrarHerramientas();
+          break;
+        case "2":
+          obtenerHerramientaAleatoria();
+          break;
+        case "3":
+          filtrar();
+          break;
+          case "4":
+          alert("¡Gracias por visitarnos!");
+          break;
+        default:
+          alert("Opción inválida.");
+          break;
+      }
+    } while (opcion !== "3");
+  
+    
     }
 
 
-  }
+    function mostrarHerramientas(){
+        let text = "Herramientas\n";
+        for (var i = 0; i < herramientas.length; i++) {
+        text +="-"+herramientas[i].getDatos()+"\n";
+    }
+        alert (text);
+        
+    }
+
+    function obtenerHerramientaAleatoria() {
+        var indiceAleatorio = Math.floor(Math.random() * herramientas.length);
+        var herramientaAleatoria = herramientas[indiceAleatorio];
+        alert ("Herramienta aleatoria seleccionada: " + herramientaAleatoria.getDatos());
+      }
+
+      function filtrar (){
+        let tipo = prompt ("ingrese tipo de herramientas \n electrica \n manual");
+        if (tipo == "electrica"|| tipo == "manual" ){ 
+            let herramientaSelecionada = herramientas.filter(her=>her.getTipo()===tipo);
+            let text = "herramientas Selecionadas\n";
+            for (var i = 0; i < herramientaSelecionada.length; i++) {
+            text +="-"+herramientaSelecionada[i].getDatos()+"\n";
+            
+            }
+            alert (text);
+        } else{ 
+            alert ("opcion incorrecta");
+            menuPrincipal();
+
+        }
+        
+    }
 
 
-  alert('Ha excedido el número máximo de intentos. Cierre de sesión.');
 
-}
+    menuPrincipal();
 
 
-iniciarSesion();
 
 
 

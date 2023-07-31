@@ -1,4 +1,4 @@
-var nombre = "";
+/**var nombre = "";
 var apellido = "";
 var email = "";
 var contraseña = "";
@@ -29,4 +29,4 @@ function mostrarDatos() {
 
 solicitarDatos();
 
-mostrarDatos();
+mostrarDatos();*/
